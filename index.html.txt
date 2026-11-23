@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YAZXSTOREE</title>
+  <style>
+    :root {
+      --dark-primary: #1f1f1f;
+      --dark-secondary: #2c2c2c;
+      --accent-color: #264653;
+      --text-light: #ffffff;
+      --btn-hover: #1e88e5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, var(--dark-primary), var(--dark-secondary));
+      color: var(--text-light);
+    }
+
+    .menu-toggle {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: white;
+      margin: 5px 0;
+      border-radius: 2px;
+      transition: 0.4s;
+    }
+
+    .menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      height: 100%;
+      background: var(--dark-secondary);
+      color: white;
+      padding: 60px 20px;
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+      z-index: 1000;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.5);
+    }
+
+    .sidebar.show {
+      transform: translateX(0);
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin: 15px 0;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      padding-left: 10px;
+      border-radius: 5px;
+    }
+
+    .header {
+      text-align: center;
+      background: var(--accent-color);
+      padding: 80px 20px 50px;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+      color: white;
+    }
+
+    .header img {
+      width: 130px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+      transition: transform 0.3s;
+    }
+
+    .header img:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .section {
+      background: rgba(255, 255, 255, 0.05);
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      backdrop-filter: blur(8px);
+    }
+
+    .section h2 {
+      color: #fff;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 5px;
+    }
+
+    .food img, .produk img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+      transition: transform 0.3s;
+    }
+
+    .food img:hover, .produk img:hover {
+      transform: scale(1.03);
+    }
+
+    .produk p {
+      margin: 5px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      margin: 10px 5px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      background: var(--accent-color);
+      color: white;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: var(--btn-hover);
+      transform: scale(1.05);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 40px 0;
+      background: var(--accent-color);
+      clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-toggle" onclick="toggleMenu(this)">
+    <span></span><span></span><span></span>
+  </div>
+
+  <div class="sidebar">
+    <a href="dasboard.html">Dashboard</a>
+    <a href="portofolio.html">Portofolio</a>
+    <a href="login.html">Login</a>
+    <a href="YassAI.html">YaZxAI</a>
+    <a href="produk.html">Produk</a>
+    <a href="Alqur'an.html">Alqur'an</a>
+    <a href="payment.html">payment</a>
+    <a href="#" onclick="exitWebsite()">Exit</a>
+  </div>
+
+  <div class="header">
+    <img src="https://files.catbox.moe/h30050.png" alt="YaZxOfficiall">
+    <h1>YAZXSTOREE</h1>
+    <p>Developer script</p>
+  </div>
+
+  <div class="container">
+    <div class="section">
+      <h2>Tentang Saya</h2>
+      <p>Hallo! Saya YAZXSTOREE, seorang Developer yang bersemangat mempelajari teknologi dan pengembangan web. Saya senang berbagi pengetahuan dan membuat proyek kreatif.</p>
+    </div>
+
+    <div class="section produk">
+      <h2>Produk Saya</h2>
+
+      <img src="https://files.catbox.moe/4h6cg7.png" alt="Produk Surxrat">
+      <p><strong>Surxrat 1.4 Public</strong><br>
+        Bisa menyadap SMS, OTP, menghidupkan senter, menggetarkan HP korban, dan mengganti wallpaper layar korban.<br>
+        <strong>Harga: Rp25.000</strong>
+      </p>
+      <a href="https://wa.me/6285723956572?text=Halo%20saya%20ingin%20beli%20produk%20Surxrat%201.4%20Public" class="btn">Beli via WhatsApp</a>
+
+      <img src="https://files.catbox.moe/mugoxo.png" alt="Produk Bot WhatsApp">
+      <p><strong>Bot WhatsApp</strong><br>
+        Bot WhatsApp adalah program otomatis yang dapat merespons pertanyaan pelanggan, memberikan info, dan layanan.<br>
+        <strong>Harga: Rp5.000</strong>
+      </p>
+      <a href="https://wa.me/6285723956572?text=Halo%20saya%20ingin%20beli%20produk%20Bot%20WhatsApp" class="btn">Beli via WhatsApp</a>
+
+      <img src="https://files.catbox.moe/bhqb15.png" alt="Produk Surxspy">
+      <p><strong>Surxspy</strong><br>
+        Melihat semua notifikasi korban dengan mudah.<br>
+        <strong>Harga: Rp50.000</strong>
+      </p>
+      <a href="https://wa.me/6285723956572?text=Halo%20saya%20ingin%20beli%20produk%20Surxspy" class="btn">Beli via WhatsApp</a>
+
+      <img src="https://files.catbox.moe/rw6fl7.png" alt="Produk Ransomware">
+      <p><strong>Ransomware</strong><br>
+        Mencegah akses ke perangkat dan data dengan enkripsi, dan meminta tebusan.<br>
+        <strong>Harga: Rp50.000</strong>
+      </p>
+      <a href="https://wa.me/6285723956572?text=Halo%20saya%20ingin%20beli%20produk%20Ransomware" class="btn">Beli via WhatsApp</a>
+    </div>
+
+    <div class="section">
+      <h2>Hubungi Saya</h2>
+      <p>Jika Anda tertarik untuk bekerja sama atau memiliki pertanyaan, hubungi saya:</p>
+      <a href="https://wa.me/6285723956572" class="btn">WhatsApp</a>
+      <a href="https://t.me/YassProject" class="btn">Telegram</a>
+      <a href="https://t.me/YassProject" class="btn">Tiktok</a>
+      <a href="https://whatsapp.com/channel/0029VayXPrv6BIEZKIp0BI0x" class="btn">Saluran WhatsApp</a>
+      <a href="https://chat.whatsapp.com/DSFw0lM79r98yKG31ToI2E" class="btn">Grup WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    © 2025 - 2026 Developer YAZXSTORE, Semua Hak Dilindungi Undang-Undang!
+  </div>
+
+  <script>
+    function toggleMenu(el) {
+      el.classList.toggle('active');
+      document.querySelector('.sidebar').classList.toggle('show');
+    }
+
+    function exitWebsite() {
+      alert('Keluar dari website');
+      window.location.href = 'about:blank';
+    }
+  </script>
+</body>
+</html>
